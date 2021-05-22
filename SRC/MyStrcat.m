@@ -1,0 +1,15 @@
+function [outString]=MyStrcat(actionstr,filestr,varstr)
+spacestr=char(32);
+actionlen=length(actionstr);
+filelen=length(filestr);
+varlen=length(varstr);
+cmdlen=actionlen+filelen+varlen+2;
+outString(1:actionlen)=actionstr;
+nowpos=actionlen+1;
+outString(nowpos)=spacestr;
+nowpos=nowpos+1;
+outString(nowpos:nowpos+filelen-1)=filestr;
+nowpos=nowpos+filelen;
+outString(nowpos:nowpos)=spacestr;
+nowpos=nowpos+1;
+outString(nowpos:cmdlen)=varstr;
